@@ -1,111 +1,64 @@
-# ===================================================================
-# ==== Секция 1: Файлы с секретными данными (САМОЕ ВАЖНОЕ!) ====
-# ===================================================================
-# Никогда не выкладывай эти файлы в публичный репозиторий.
-# Они содержат ключи и доступы к твоему проекту.
-
-# Ключи твоего Firebase проекта.
-firebase_options.dart
-
-# Локальные свойства Android, могут содержать пути к SDK на твоем ПК.
-/android/local.properties
-
-# Ключи для подписи Android приложения (если ты их создашь).
-/android/key.properties
-*.jks
-*.keystore
-
-# Firebase / Google service account (никогда не коммитить!)
-service-account-key.json
-**/service-account-key*.json
-
-# Локальные переменные окружения (секреты)
-.env
-.env.local
-.env.*.local
-*.env
-
-# Бекенд (Firebase Cloud Functions) — не публикуем в репозитории приложения
-/functions
-
-
-# ===================================================================
-# ==== Секция 2: Стандартные файлы Flutter/Dart/Pub (из твоего файла) ====
-# ===================================================================
-# Эти файлы генерируются автоматически при сборке или получении зависимостей.
-# Их не нужно хранить в Git, так как они создадутся у любого, кто скачает проект.
-
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# =============================================
+# Flutter & Dart
+# =============================================
 .dart_tool/
+.build/
+.packages
+.pub/
+.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
-.pub/
-/build/
-/coverage/
-
-
-# ===================================================================
-# ==== Секция 3: Файлы IDE и операционных систем (из твоего файла) ====
-# ===================================================================
-# Служебные файлы, которые создают Android Studio, IntelliJ, VS Code и macOS.
-
-# IntelliJ/Android Studio
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# VS Code - лучше раскомментировать, чтобы не хранить личные настройки.
-.vscode/
-
-# macOS
-.DS_Store
-
-# Прочее (из твоего файла)
-*.class
-*.log
-*.pyc
-*.swp
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
-
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Flutter version manager
-.fvm/
-
-# Generated files
+build/
+coverage/
 *.lock
 !pubspec.lock
 
+# =============================================
+# Firebase / Secrets
+# =============================================
+lib/firebase_options.dart
+service-account-key.json
+.env
+.env.local
+.env.*.local
+*.jks
+*.keystore
+android/key.properties
+android/local.properties
+/functions/
 
-# ===================================================================
-# ==== Секция 4: Специфичные для платформ артефакты (из твоего файла) ====
-# ===================================================================
-# Продукты сборки для Android и iOS.
+# Логи ошибок Kotlin
+android/.kotlin/errors/
 
+
+# Node зависимости
+node_modules/
+
+# =============================================
+# IDE & OS
+# =============================================
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# =============================================
+# Platform artifacts
+# =============================================
 # Android
 /android/app/debug/
 /android/app/profile/
 /android/app/release/
 
-# iOS (добавлено для полноты)
+# iOS
 /ios/Pods/
 /ios/.symlinks/
 /ios/Flutter/App.framework
 /ios/Runner.xcworkspace
 
-# Symbolication and Obfuscation (из твоего файла)
-app.*.symbols
-app.*.map.json
+# Windows, Linux, MacOS
+/windows/flutter/ephemeral/
+/linux/flutter/ephemeral/
+/macos/Flutter/ephemeral/
