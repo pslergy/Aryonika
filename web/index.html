@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Базовые настройки -->
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =================================================================== -->
+  <!-- === МЕТА-ТЕГИ "ЗАГЛУШКИ" (будут заменены скриптом) === -->
+  <!-- =================================================================== -->
+  <title>Aryonika</title>
+  <meta name="description" content="Cosmic Dating & Astrology App">
+  
+  <!-- Open Graph Tags (для Telegram, VK, Facebook и т.д.) -->
+  <meta property="og:url" content="https://psylergy.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aryonika">
+  <meta property="og:description" content="Cosmic Dating & Astrology App">
+  <meta property="og:image" content="https://psylergy.com/social_preview.jpg">
+  <!-- Для лучшего отображения можно указать размеры картинки -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="psylergy.com">
+  <meta property="twitter:url" content="https://psylergy.com">
+  <meta name="twitter:title" content="Aryonika">
+  <meta name="twitter:description" content="Cosmic Dating & Astrology App">
+  <meta name="twitter:image" content="https://psylergy.com/social_preview.jpg">
+
+  <!-- Favicon и иконки для мобильных устройств -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#121212">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Aryonika">
+
+  <!-- =================================================================== -->
+  <!-- === СКРИПТ ДЛЯ ДИНАМИЧЕСКОЙ ЗАМЕНЫ МЕТА-ТЕГОВ === -->
+  <!-- =================================================================== -->
+  <script>
+    (function() {
+      var userLang = navigator.language || navigator.userLanguage;
+      var langCode = userLang.split('-')[0];
+      
+      var supportedLangs = ['en', 'ru', 'es', 'de', 'fr', 'ko', 'zh', 'hi'];
+      if (!supportedLangs.includes(langCode)) {
+        langCode = 'en'; // Язык по умолчанию
+      }
+
+      var apiUrl = 'https://api.psylergy.com/meta-tags?lang=' + langCode;
+
+      // Используем синхронный XMLHttpRequest, чтобы теги успели обновиться до парсинга ботами
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', apiUrl, false); // false = синхронный запрос
+      
+      try {
+        xhr.send(null);
+        if (xhr.status === 200) {
+          var metaData = JSON.parse(xhr.responseText);
+          if (metaData.title && metaData.description) {
+            document.title = metaData.title;
+            document.querySelector('meta[name="description"]').setAttribute('content', metaData.description);
+            document.querySelector('meta[property="og:title"]').setAttribute('content', metaData.title);
+            document.querySelector('meta[property="og:description"]').setAttribute('content', metaData.description);
+            document.querySelector('meta[name="twitter:title"]').setAttribute('content', metaData.title);
+            document.querySelector('meta[name="twitter:description"]').setAttribute('content', metaData.description);
+          }
+        }
+      } catch (e) {
+        console.error('Failed to fetch meta tags:', e);
+      }
+    })();
+  </script>
+  <!-- =================================================================== -->
+
+  <!-- Стандартный загрузчик Flutter. Твой flutter_bootstrap.js был из старой версии. -->
+  <script src="flutter.js" defer></script>
+
+</head>
+<body>
+  <div id="seo-content" style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>Aryonika — Астрология и Таро Бесплатно</h1>
+    <p>Лучшее приложение для расчета совместимости. Узнайте свой гороскоп на сегодня, завтра и месяц.</p>
+    <h2>Наши функции:</h2>
+    <ul>
+        <li>Натальная карта по дате рождения</li>
+        <li>Гадание на картах Таро (Карта дня)</li>
+        <li>Совместимость знаков зодиака (Любовь и Бизнес)</li>
+        <li>Нумерология и Матрица судьбы</li>
+        <li>Лунный календарь 2025</li>
+    </ul>
+    <a href="https://psylergy.com/register">Регистрация</a>
+</div>
+  <script>
+  window.addEventListener('load', function(ev) {
+    // Генерируем уникальную версию каждый раз (timestamp)
+    var v = new Date().getTime();
+    
+    _flutter.loader.loadEntrypoint({
+      // Используем стандартный файл, но добавляем ?v=...
+      // Браузер будет думать, что это новый файл, и качать его заново.
+      entrypointUrl: "main.dart.js?v=" + v,
+      
+      // Service Worker отключен (параметр не передается)
+    }).then(function(engineInitializer) {
+      return engineInitializer.initializeEngine();
+    }).then(function(appRunner) {
+      appRunner.runApp();
+    });
+  });
+</script>
+</body>
+</html>

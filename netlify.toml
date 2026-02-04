@@ -1,0 +1,13 @@
+# netlify.toml
+
+[build]
+  # Команда для сборки вашего проекта
+  command = "flutter build web --release --web-renderer canvaskit"
+  
+  # Папка с готовым сайтом, которую нужно опубликовать
+  publish = "build/web"
+
+[build.environment]
+  # Указываем Netlify, какую точную версию Flutter использовать
+  # Это решает 99% проблем со сборкой
+  FLUTTER_VERSION = "3.35.3"

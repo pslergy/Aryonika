@@ -1,0 +1,20 @@
+rules_version = '2';
+// Правила доступа к Firestore для production.
+// Разрешаем чтение/запись только авторизованным пользователям.
+// При необходимости ужесточите правила под конкретные коллекции.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Пользователи: чтение/запись только своего документа или по uid
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    // При необходимости добавьте правила для других коллекций:
+    // match /channels/{channelId} { ... }
+    // match /posts/{postId} { ... }
+    // По умолчанию запрещаем всё, что не описано выше
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

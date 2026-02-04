@@ -1,0 +1,41 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "lovequest1405",
+          "appId": "1:1092322439559:android:fd28b733751d79b8382322",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "lovequest1405",
+          "configurations": {
+            "android": "1:1092322439559:android:fd28b733751d79b8382322",
+            "ios": "1:1092322439559:ios:314436b97773055f382322",
+            "macos": "1:1092322439559:ios:314436b97773055f382322",
+            "web": "1:1092322439559:web:06a75af7d0dc3282382322",
+            "windows": "1:1092322439559:web:33972fb550c87470382322"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}
