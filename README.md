@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Aryonika
+
 =======
 # 🌌 Aryonika
 
