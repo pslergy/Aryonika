@@ -25,6 +25,7 @@ service-account-key.json
 *.keystore
 android/key.properties
 android/local.properties
+android/app/google-services.json
 /functions/
 
 # Логи ошибок Kotlin
