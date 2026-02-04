@@ -5,7 +5,7 @@ import 'package:lovequest/services/logger_service.dart';
 
 class NotificationService {
   final String _appId = "e13b7721-c57d-474e-9885-b680f59013cf";
-  final String _apiKey = "os_v2_app_4e5xoiofpvdu5gefw2apleatz45ns7ohvv3eu4uua4n2ebojgs26uxjofjxcy5trabksmj3pjtsse7at24ncqvz2thedzcjyztbnlky"; // <-- ВАЖНО: Храните его безопасно
+ 
 
   Future<void> sendNotification({
     required List<String> playerIds, // Список ID получателей
